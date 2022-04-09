@@ -1,0 +1,94 @@
+@import 'Invoice';
+
+.invoice {
+  max-width: $invoiceMaxWidth;
+  margin: ($rhythm * 2) auto;
+  border: 1px solid #EAEAEA;
+  padding: 2 * $rhythm;
+  border-radius: $borderRadius;
+  background: #ffffff;
+}
+
+.brand {
+  margin-bottom: $rhythm * 2;
+  .logo {
+    display: inline-block;
+    border-radius: $borderRadius;
+  }
+}
+
+.addresses {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  text-align: left;
+  .from, .to {
+    border-radius: $borderRadius;
+    width: 100%;
+    max-width: $invoiceMaxWidth / 3;
+  }
+  .from {
+    display: block;
+    font-style: normal;
+    margin-right: $rhythm / 2;
+  }
+  .to {
+    display: block;
+    margin-left: $rhythm / 2;
+    padding: 0;
+    .value {
+      text-align: right;
+    }
+  }
+  .address {
+    display: block;
+  }
+}
+
+.valueTable {
+  margin: 0 0 0 auto;
+  border: 1px solid #EAEAEA;
+  border-radius: $borderRadius;
+  overflow: hidden;
+  width: 100%;
+  min-width: $invoiceMaxWidth / 3;
+  max-width: $invoiceMaxWidth / 3;
+  & > .row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    &:last-of-type {
+      border-bottom: none;
+    }
+    & > div {
+      padding: ($rhythm/2);
+    }
+    & > .label {
+      @extend %flex-center;
+      justify-content: flex-start;
+      font-weight: bold;
+    }
+
+  }
+}
+
+.totalContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.pay {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+button.payNow {
+  display: block;
+  padding: 20px 40px;
+  background: #ffffff;
+  border-radius: 4px;
+  border: 1px solid lightgray;
+  cursor: pointer;
+  font-size: 18px;
+}
